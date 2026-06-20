@@ -74,9 +74,9 @@ export function Numbers() {
       <div className="mx-auto max-w-7xl px-[clamp(1rem,4vw,3rem)]">
         <div className="flex items-baseline justify-between border-b border-bone/15 pb-6">
           <h2 className="font-display text-[clamp(2rem,6vw,4.5rem)] text-bone">
-            By the numbers
+            Personal bests
           </h2>
-          <span className="overline hidden md:inline">Personal bests</span>
+          <span className="overline hidden md:inline">By the numbers</span>
         </div>
 
         {/* flagship */}

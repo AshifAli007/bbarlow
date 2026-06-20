@@ -21,6 +21,9 @@ _local/
 # generated image previews — heavy + reproducible, never push to GitHub.
 # Regenerate locally with `npm run photos:preview`; prod serves from Cloudinary.
 public/photos/
+(9:12)
+(4:18)
+(2:08)
 
 # misc
 .DS_Store

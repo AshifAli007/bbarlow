@@ -113,7 +113,7 @@ export function Gallery() {
           ))}
         </div>
 
-        {/* uniform grid — paginated by whole rows */}
+        {/* uniform grid, paginated by whole rows */}
         <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
           {visible.map((p, i) => {
             const isGate = i === gateIndex;

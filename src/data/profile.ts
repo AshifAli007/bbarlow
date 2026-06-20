@@ -27,12 +27,11 @@ export const profile = {
   born: "April 8, 2000",
   major: "Psychology",
   currentTeam: "Boston College",
-  tagline: "A long-distance story, told in laps.",
   intro:
-    "From the cross-country fields of Manchester to the fastest tracks in American collegiate running, Beth Barlow has chased distance the long way round — three universities, two national titles, and a personal best that puts her among the quick.",
+    "Beth grew up racing on the cross-country fields of Manchester, then carried it across the Atlantic through three universities and onto some of the fastest tracks in American college running. Two national titles and a 3000m in 9:12.29 later, she is still chasing the next one.",
   manifesto: [
-    "Distance running is patience made physical. It is the same loop, run faster than the last; the same hurt, met with a little more nerve.",
-    "Beth's race is the 3000 and the mile indoors, the 5k and cross country when the season turns. The numbers tell one story. The miles behind them tell another.",
+    "Ask Beth why she runs and you probably will not get a tidy answer. The truth is closer to habit, and to the quiet satisfaction of being good at something genuinely hard.",
+    "Her races are the 3000 and the mile indoors, the 5k and cross country outdoors. The medals are nice. The reason she keeps going is simpler than that.",
   ],
   pullQuote:
     "You don't find out who you are at the start line. You find out with 600 metres to go.",
@@ -68,7 +67,7 @@ export const journey: JourneyStop[] = [
     school: "Where it started",
     years: "Junior years",
     blurb:
-      "Two-time national 1500m champion — Junior Girls in 2014, Senior Girls in 2017. Also a netball player and swimmer before running won out.",
+      "Two-time national 1500m champion: Junior Girls in 2014, Senior Girls in 2017. Also a netball player and swimmer before running won out.",
     coord: [53.4808, -2.2426],
   },
   {
@@ -97,5 +96,6 @@ export const journey: JourneyStop[] = [
 
 /** Featured photo public ids (overridden gracefully if missing). */
 export const featured = {
-  hero: "beth/ncaa-xc-champs/NATTYS___Elizabeth_Barlow___November_23__2024___DSC08871",
+  hero: "beth/indoor-training/DSC04501___Elizabeth_Barlow___February_28__2025",
+  portrait: "beth/outdoor-may/DSC09579__Elizabeth_Barlow__May_03__2025",
 };

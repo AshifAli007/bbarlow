@@ -5,9 +5,12 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from "react";
 import { SmartImage } from "@/components/smart-image";
+import { imageUrl, lightboxWidth } from "@/lib/cloudinary";
+import { isImageLoaded, markImageLoaded } from "@/lib/image-cache";
 import type { Photo } from "@/lib/photos";
 
 type LightboxState = { photos: Photo[]; index: number; caption?: string } | null;
@@ -23,6 +26,33 @@ export const useLightbox = () => useContext(LightboxContext);
 
 export function LightboxProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<LightboxState>(null);
+
+  // Size the full image to the viewport (bucketed) so first-generation is fast
+  // and we reuse a small set of Cloudinary transforms.
+  const [targetW, setTargetW] = useState(1600);
+  useEffect(() => {
+    const compute = () =>
+      setTargetW(
+        lightboxWidth(window.innerWidth, window.innerHeight, window.devicePixelRatio || 1)
+      );
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
+  }, []);
+
+  // Browser-cache warmer: requesting the exact same URL the <img> will use means
+  // navigation becomes an instant cache hit instead of a fresh on-the-fly fetch.
+  const warmed = useRef<Set<string>>(new Set());
+  const warm = useCallback((publicId: string) => {
+    const url = imageUrl(publicId, { w: targetW, crop: "limit" });
+    if (warmed.current.has(url) || isImageLoaded(url)) return;
+    warmed.current.add(url);
+    const img = new Image();
+    img.decoding = "async";
+    // record once decoded so SmartImage can mount it instantly (no blur-up)
+    img.onload = () => markImageLoaded(url);
+    img.src = url;
+  }, [targetW]);
 
   const open = useCallback(
     (photos: Photo[], index: number, caption?: string) =>
@@ -55,6 +85,46 @@ export function LightboxProvider({ children }: { children: React.ReactNode }) {
       window.removeEventListener("keydown", onKey);
     };
   }, [state, close, step]);
+
+  // Warm the immediate neighbors (±1, ±2) the instant the index changes so the
+  // next/prev step is a cache hit.
+  const photos = state?.photos;
+  const index = state?.index;
+  useEffect(() => {
+    if (!photos || index == null) return;
+    const n = photos.length;
+    [1, -1, 2, -2].forEach((d) => {
+      const p = photos[((index + d) % n + n) % n];
+      if (p) warm(p.publicId);
+    });
+  }, [photos, index, warm]);
+
+  // Background-prefetch a bounded window around the current photo at display size,
+  // a few at a time, after neighbors are handled. The window recenters as you
+  // navigate, so a full meet (<= ~30) warms entirely while the 288-photo "All"
+  // set never balloons. Cancels when the lightbox closes / set changes.
+  useEffect(() => {
+    if (!photos || index == null) return;
+    const WINDOW = 14; // each direction
+    const n = photos.length;
+    const order: number[] = [];
+    for (let d = 3; d <= WINDOW; d++) {
+      order.push(((index + d) % n + n) % n);
+      order.push(((index - d) % n + n) % n);
+    }
+    let cancelled = false;
+    let i = 0;
+    const tick = () => {
+      if (cancelled) return;
+      for (let k = 0; k < 3 && i < order.length; k++, i++) warm(photos[order[i]].publicId);
+      if (i < order.length) timer = window.setTimeout(tick, 220);
+    };
+    let timer = window.setTimeout(tick, 500);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [photos, index, warm]);
 
   const current = state?.photos[state.index];
 
@@ -106,9 +176,10 @@ export function LightboxProvider({ children }: { children: React.ReactNode }) {
                 alt={state.caption || "Beth Barlow"}
                 width={current.w}
                 height={current.h}
-                w={1600}
+                w={targetW}
                 crop="limit"
-                sizes="92vw"
+                fixed
+                lqip
                 priority
                 className="max-h-[80vh] w-auto object-contain"
               />

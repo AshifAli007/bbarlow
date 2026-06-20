@@ -25,11 +25,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Beth Barlow — Distance Runner",
+  title: "Beth Barlow · Distance Runner",
   description:
-    "Beth Barlow — distance runner from Manchester, England. From the Ivy League to the ACC: 3000m in 9:12.29, two-time national champion, NCAA All-Region. Her races, her record, her road.",
+    "Beth Barlow, distance runner from Manchester, England. From the Ivy League to the ACC: 3000m in 9:12.29, two-time national champion, NCAA All-Region. Her races, her record, her road.",
   openGraph: {
-    title: "Beth Barlow — Distance Runner",
+    title: "Beth Barlow · Distance Runner",
     description:
       "From Manchester to the fastest tracks in American collegiate running. 3000m in 9:12.29.",
     type: "website",
@@ -44,6 +44,10 @@ export default function RootLayout({
       lang="en"
       className={`${anton.variable} ${fraunces.variable} ${inter.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+      </head>
       <body>
         <Cursor />
         <SmoothScroll>{children}</SmoothScroll>

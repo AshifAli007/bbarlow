@@ -76,7 +76,7 @@ html.lenis body {
   font-feature-settings: "tnum" 1;
 }
 
-/* Thin overline label — in @layer so Tailwind text-* utilities can override the
+/* Thin overline label; in @layer so Tailwind text-* utilities can override the
    default color (otherwise unlayered CSS wins and overrides are ignored). */
 @layer components {
   .overline {

@@ -56,6 +56,7 @@ export function Hero({ ready }: { ready: boolean }) {
       <div className="hero-img absolute inset-0 scale-110 will-change-transform">
         {photo ? (
           <SmartImage
+            key={photo.publicId}
             publicId={photo.publicId}
             alt="Beth Barlow racing"
             width={dims.w}
@@ -64,6 +65,7 @@ export function Hero({ ready }: { ready: boolean }) {
             sizes="100vw"
             priority
             gravity="auto"
+            lqip
             className="h-full w-full object-cover"
           />
         ) : (
@@ -94,10 +96,7 @@ export function Hero({ ready }: { ready: boolean }) {
           </span>
         </h1>
 
-        <div className="hero-meta mt-6 flex flex-wrap items-end justify-between gap-6 border-t border-bone/15 pt-5">
-          <p className="max-w-md font-serif text-lg leading-snug text-bone/85">
-            {profile.tagline}
-          </p>
+        <div className="hero-meta mt-6 flex flex-wrap items-end justify-end gap-6 border-t border-bone/15 pt-5">
           <div className="flex items-end gap-3">
             <span className="overline mb-1">3000m</span>
             <span className="tnum font-display text-[clamp(2rem,5vw,3.5rem)] leading-none text-gold">

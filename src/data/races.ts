@@ -18,7 +18,7 @@ export type Race = {
 /**
  * Cleaned from the source CSVs + verified against TFRRS / World Athletics /
  * team sites. The raw CSV had a URL used as a meet name (PNC Lenny Lyles), a
- * "21:11:50" typo, and section-divider rows — all corrected here. 2024 XC
+ * "21:11:50" typo, and section-divider rows, all corrected here. 2024 XC
  * results are added from the FSU record to enrich the photo chapters.
  */
 export const races: Race[] = [
@@ -254,7 +254,7 @@ export const races: Race[] = [
     date: "2026-01-18",
     dateLabel: "January 18, 2026",
     distance: "3000m",
-    time: "—",
+    time: "TBD",
     location: "Boston, MA",
     team: "Boston College",
     season: "Indoor 2026",

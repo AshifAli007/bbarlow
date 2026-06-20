@@ -17,6 +17,10 @@ export type ImgOpts = {
   crop?: "fill" | "fit" | "limit";
   gravity?: "auto" | "face" | "center";
   q?: number | "auto";
+  /** raw Cloudinary effect token, e.g. "blur:1500" */
+  effect?: string;
+  /** omit dpr_auto; used by the LQIP and exact-size preloads for predictable URLs */
+  noDpr?: boolean;
 };
 
 function flat(publicId: string) {
@@ -24,7 +28,7 @@ function flat(publicId: string) {
 }
 
 export function imageUrl(publicId: string, opts: ImgOpts = {}): string {
-  const { w, h, crop = "fill", gravity = "auto", q = "auto" } = opts;
+  const { w, h, crop = "fill", gravity = "auto", q = "auto", effect, noDpr } = opts;
 
   if (CLOUD) {
     const t = [
@@ -34,7 +38,8 @@ export function imageUrl(publicId: string, opts: ImgOpts = {}): string {
       h ? `h_${h}` : null,
       w || h ? `c_${crop}` : null,
       (w || h) && crop === "fill" ? `g_${gravity}` : null,
-      "dpr_auto",
+      effect ? `e_${effect}` : null,
+      noDpr ? null : "dpr_auto",
     ]
       .filter(Boolean)
       .join(",");
@@ -42,6 +47,26 @@ export function imageUrl(publicId: string, opts: ImgOpts = {}): string {
   }
 
   return `/photos/${flat(publicId)}.jpg`;
+}
+
+/**
+ * Tiny, heavily-blurred placeholder (~1KB). Shown instantly behind a full image
+ * so transitions never reveal a black frame while the sharp image loads.
+ */
+export function lqip(publicId: string): string {
+  return imageUrl(publicId, { w: 40, crop: "limit", effect: "blur:1500", q: 30, noDpr: true });
+}
+
+/**
+ * Bucket the needed lightbox width into a small set of values so we reuse a
+ * handful of Cloudinary transforms (cheaper, better cache hits) instead of
+ * generating a unique size per device.
+ */
+export function lightboxWidth(vw: number, vh: number, dpr = 1): number {
+  // the lightbox image is constrained to ~92vw / ~80vh; size to the larger edge
+  const needed = Math.max(vw * 0.92, vh * 0.8) * Math.min(dpr, 2);
+  const buckets = [800, 1200, 1600, 2000];
+  return buckets.find((b) => b >= needed) ?? buckets[buckets.length - 1];
 }
 
 /** Responsive srcSet for a target display width (Cloudinary only). */

@@ -14,6 +14,16 @@ const TYPE_LABEL: Record<Meet["type"], string> = {
   team: "Off the Track",
 };
 
+// Non-competition events: kept in the archive, hidden from the race-by-race timeline.
+const HIDDEN_FROM_SEASONS = new Set([
+  "pre-meet-oct", // Pre-Meet Shakeout
+  "team-portraits", // Team Portraits
+  "practice-nov", // Practice
+  "pre-nationals", // Pre-Nationals
+  "indoor-training", // Indoor Training Days
+  "banquet", // Awards Banquet
+]);
+
 function ResultBadge({ meetId }: { meetId: string }) {
   const results = allResultsForMeet(meetId);
   if (!results.length) return null;
@@ -131,7 +141,9 @@ export function Chapters() {
   const grouped = seasonsInOrder
     .map((season) => ({
       season,
-      meets: meets.filter((m) => m.season === season),
+      meets: meets.filter(
+        (m) => m.season === season && !HIDDEN_FROM_SEASONS.has(m.id)
+      ),
     }))
     .filter((g) => g.meets.length);
 
