@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens                                                      */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-ink: #0b0b0d;
+  --color-ink-soft: #16161a;
+  --color-bone: #f3eee4;
+  --color-bone-dim: #d8d2c5;
+  --color-garnet: #9e1b32;
+  --color-garnet-bright: #c8203c;
+  --color-gold: #c9a227;
+  --color-track: #1f6f54;
+
+  --font-display: var(--font-anton), "Arial Narrow", sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-quint: cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  margin: 0;
+  overflow-x: hidden;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+::selection {
+  background: var(--color-garnet);
+  color: var(--color-bone);
+}
+
+/* Display headings */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Tabular numerals for times/stats */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Thin overline label — in @layer so Tailwind text-* utilities can override the
+   default color (otherwise unlayered CSS wins and overrides are ignored). */
+@layer components {
+  .overline {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-bone-dim);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Custom cursor                                                      */
+/* ------------------------------------------------------------------ */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--color-bone);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(243, 238, 228, 0.5);
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  will-change: transform;
+  transition: width 0.25s var(--ease-expo), height 0.25s var(--ease-expo),
+    border-color 0.25s var(--ease-expo);
+}
+.cursor-ring.hover {
+  width: 64px;
+  height: 64px;
+  border-color: var(--color-gold);
+}
+/* "view" state: shown only over media that has a click action */
+.cursor-ring.view {
+  width: 84px;
+  height: 84px;
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  mix-blend-mode: normal;
+}
+.cursor-label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-ink);
+  opacity: 0;
+  transition: opacity 0.2s var(--ease-expo);
+  will-change: transform;
+}
+.cursor-label.show {
+  opacity: 1;
+}
+
+/* Hide the native cursor only while the custom cursor is active, so reduced-motion
+   / touch users keep their normal pointer. */
+html[data-cursor-active],
+html[data-cursor-active] a,
+html[data-cursor-active] button,
+html[data-cursor-active] [data-cursor="hover"] {
+  cursor: none;
+}
+
+@media (hover: none) {
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-label {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reusable bits                                                      */
+/* ------------------------------------------------------------------ */
+.paper {
+  background: var(--color-bone);
+  color: var(--color-ink);
+}
+
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  z-index: 2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.hairline {
+  border-color: rgba(243, 238, 228, 0.14);
+}
+.paper .hairline {
+  border-color: rgba(11, 11, 13, 0.14);
+}
+
+/* Marquee */
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+}

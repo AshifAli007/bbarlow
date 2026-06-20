@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# next.js
+.next/
+out/
+build/
+next-env.d.ts
+*.tsbuildinfo
+
+# secrets — never commit
+.env
+.env.local
+.env*.local
+
+# local-only assets & scratch (originals live on the user's disk / Cloudinary)
+_local/
+
+# generated image previews — heavy + reproducible, never push to GitHub.
+# Regenerate locally with `npm run photos:preview`; prod serves from Cloudinary.
+public/photos/
+
+# misc
+.DS_Store
+*.log
+.vercel
+.idea/
+.playwright-mcp/
