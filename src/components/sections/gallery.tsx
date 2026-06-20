@@ -3,11 +3,25 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SmartImage } from "@/components/smart-image";
 import { useLightbox } from "@/components/lightbox";
-import { meets, allPhotos, totals, type Photo } from "@/lib/photos";
+import { meets, type Photo } from "@/lib/photos";
 
 type Filter = { id: string; label: string; count: number };
 
 const ROWS_PER_STEP = 2;
+
+// Events excluded from the archive entirely (all of their photos).
+const HIDDEN_FROM_ARCHIVE = new Set([
+  "pre-meet-oct", // Pre-Meet Shakeout
+  "pre-nationals", // Pre-Nationals
+  "team-portraits", // Team Portraits
+]);
+
+const archiveMeets = meets.filter((m) => !HIDDEN_FROM_ARCHIVE.has(m.id));
+const archivePhotos: Photo[] = archiveMeets.flatMap((m) => m.photos);
+const archiveTotals = {
+  photos: archivePhotos.length,
+  meets: archiveMeets.length,
+};
 
 /** Columns must mirror the Tailwind grid breakpoints below (md=768, lg=1024). */
 function columnsForWidth(w: number) {
@@ -33,18 +47,18 @@ export function Gallery() {
 
   const filters: Filter[] = useMemo(
     () => [
-      { id: "all", label: "All", count: totals.photos },
-      ...meets.map((m) => ({ id: m.id, label: m.displayName, count: m.photoCount })),
+      { id: "all", label: "All", count: archiveTotals.photos },
+      ...archiveMeets.map((m) => ({ id: m.id, label: m.displayName, count: m.photoCount })),
     ],
     []
   );
 
   const photos: Photo[] = useMemo(() => {
-    if (active === "all") return allPhotos;
-    return meets.find((m) => m.id === active)?.photos ?? [];
+    if (active === "all") return archivePhotos;
+    return archiveMeets.find((m) => m.id === active)?.photos ?? [];
   }, [active]);
 
-  const activeMeet = meets.find((m) => m.id === active);
+  const activeMeet = archiveMeets.find((m) => m.id === active);
   const caption =
     active === "all"
       ? "Beth Barlow"
@@ -83,7 +97,7 @@ export function Gallery() {
           <h2 className="font-display text-[clamp(2.2rem,7vw,5.5rem)] text-bone">
             The archive
           </h2>
-          <span className="overline">{totals.photos} frames · {totals.meets} meets</span>
+          <span className="overline">{archiveTotals.photos} frames · {archiveTotals.meets} meets</span>
         </div>
 
         {/* filter rail (drag to scroll) */}

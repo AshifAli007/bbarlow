@@ -16,6 +16,64 @@ const LOCATIONS = [
   "Charlottesville",
 ];
 
+type LinkPreview = {
+  image: string;
+  title: string;
+  description: string;
+  domain: string;
+};
+
+type FooterLinkItem = {
+  label: string;
+  href: string;
+  preview?: LinkPreview;
+};
+
+function FooterLink({ item }: { item: FooterLinkItem }) {
+  return (
+    <span className="group relative inline-block">
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noreferrer"
+        data-cursor="hover"
+        className="inline-block rounded-full border border-bone/25 px-5 py-2.5 text-sm text-bone/80 transition hover:border-gold hover:text-gold"
+      >
+        {item.label} ↗
+      </a>
+
+      {item.preview && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute bottom-full left-0 z-20 mb-3 hidden w-72 max-w-[calc(100vw-2rem)] translate-y-2 scale-95 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100 md:block"
+        >
+          <span className="block overflow-hidden rounded-xl border border-gold/30 bg-ink-soft shadow-2xl ring-1 ring-bone/10">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={item.preview.image}
+              alt=""
+              loading="lazy"
+              className="block aspect-[16/10] w-full object-cover object-top"
+            />
+            <span className="block px-4 py-3">
+              <span className="block text-sm font-medium text-bone">
+                {item.preview.title}
+              </span>
+              <span className="mt-1 block text-xs leading-relaxed text-bone/55">
+                {item.preview.description}
+              </span>
+              <span className="overline mt-2 block text-gold">
+                {item.preview.domain}
+              </span>
+            </span>
+          </span>
+          <span className="absolute left-10 top-full -mt-1.5 h-3 w-3 rotate-45 border-b border-r border-gold/30 bg-ink-soft" />
+        </span>
+      )}
+    </span>
+  );
+}
+
 export function Footer() {
   const root = useRef<HTMLElement>(null);
   const closing = soloPhoto(8);
@@ -41,13 +99,54 @@ export function Footer() {
   );
 
   const links = [
-    { label: "World Athletics", href: profile.links.worldAthletics },
-    { label: "TFRRS", href: profile.links.tfrrs },
-    { label: "Boston College", href: profile.links.bostonCollege },
+    {
+      label: "World Athletics",
+      href: profile.links.worldAthletics,
+      preview: {
+        image: "/link-previews/world-athletics.jpeg",
+        title: "Elizabeth Barlow, athlete profile",
+        description:
+          "Official World Athletics profile with personal bests and world rankings.",
+        domain: "worldathletics.org",
+      },
+    },
+    {
+      label: "TFRRS",
+      href: profile.links.tfrrs,
+      preview: {
+        image: "/link-previews/tfrrs.jpeg",
+        title: "Elizabeth Barlow, college results",
+        description:
+          "Collegiate track and cross country results, bests, and meet history.",
+        domain: "tfrrs.org",
+      },
+    },
+    {
+      label: "Boston College",
+      href: profile.links.bostonCollege,
+      preview: {
+        image: "/link-previews/boston-college.jpeg",
+        title: "Elizabeth Barlow, team roster",
+        description:
+          "Boston College Eagles women's cross country roster profile.",
+        domain: "bceagles.com",
+      },
+    },
+    {
+      label: "Florida State",
+      href: profile.links.floridaState,
+      preview: {
+        image: "/link-previews/seminoles.jpeg",
+        title: "Elizabeth Barlow, team roster",
+        description:
+          "Florida State Seminoles women's track and field roster profile.",
+        domain: "seminoles.com",
+      },
+    },
     profile.links.instagram
       ? { label: "Instagram", href: profile.links.instagram }
       : null,
-  ].filter(Boolean) as { label: string; href: string }[];
+  ].filter(Boolean) as FooterLinkItem[];
 
   return (
     <footer ref={root} className="relative overflow-hidden bg-ink">
@@ -91,16 +190,7 @@ export function Footer() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             {links.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                target="_blank"
-                rel="noreferrer"
-                data-cursor="hover"
-                className="rounded-full border border-bone/25 px-5 py-2.5 text-sm text-bone/80 transition hover:border-gold hover:text-gold"
-              >
-                {l.label} ↗
-              </a>
+              <FooterLink key={l.label} item={l} />
             ))}
           </div>
         </div>

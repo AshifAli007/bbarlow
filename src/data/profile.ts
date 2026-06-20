@@ -41,6 +41,8 @@ export const profile = {
     tfrrs: "https://www.tfrrs.org/athletes/8924508/Florida_State/Elizabeth_Barlow.html",
     bostonCollege:
       "https://bceagles.com/sports/womens-cross-country/roster/elizabeth-barlow/26074",
+    floridaState:
+      "https://seminoles.com/sports/womens-track-and-field/roster/elizabeth-barlow/7636",
     instagram: "", // add when available
   },
 };

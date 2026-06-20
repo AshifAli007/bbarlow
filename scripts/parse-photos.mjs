@@ -264,13 +264,31 @@ for (const file of files) {
   });
 }
 
+// Manual cover picks by meet id; these win over the auto heuristic below.
+const COVER_OVERRIDES = {
+  nuttycombe:
+    "beth/nuttycombe/_Elizabeth_Barlow___Nuttycombe___September_27__2024DSC05192",
+  "ncaa-south-region":
+    "beth/ncaa-south-region/ARP_Regional_Meet___Agnes_McTighe__Bieke_Schipperan__Brooke_Mullins__Elizabeth_Barlow___November_15__2024___DSC05764",
+  "jimmy-carnes":
+    "beth/jimmy-carnes/Coach_Cody_Halsey__Elizabeth_Barlow_JIMMY_CARNES1_17_DSC04103",
+  "lenny-lyles":
+    "beth/lenny-lyles/Brooke_Mullins__Coach_Cody_Halsey__Elizabeth_Barlow__Emily_Brown_Louisville_1_30_DSC02962",
+  "acc-outdoor":
+    "beth/acc-outdoor/DSC09537___Elizabeth_Barlow___May_17__2025",
+  "fsu-relays":
+    "beth/fsu-relays/DSC01167___Elizabeth_Barlow___March_28__2025",
+};
+
 // --- finalize meets ---------------------------------------------------------
 const meets = [...meetsMap.values()].map((m) => {
   const dates = [...m.dates].sort();
   const dateISO = dates[0] || null;
   const dateEnd = dates[dates.length - 1] || null;
-  // cover: prefer a solo landscape, else any landscape, else first
+  // cover: manual override, else prefer a solo landscape, else any landscape, else first
+  const overrideId = COVER_OVERRIDES[m.id];
   const cover =
+    (overrideId && m.photos.find((p) => p.publicId === overrideId)) ||
     m.photos.find((p) => p.solo && p.orientation === "landscape") ||
     m.photos.find((p) => p.orientation === "landscape") ||
     m.photos.find((p) => p.solo) ||

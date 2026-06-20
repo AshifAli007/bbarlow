@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { SmartImage } from "@/components/smart-image";
 import { useLightbox } from "@/components/lightbox";
@@ -23,6 +23,9 @@ const HIDDEN_FROM_SEASONS = new Set([
   "indoor-training", // Indoor Training Days
   "banquet", // Awards Banquet
 ]);
+
+// Covers whose framing reads better anchored to the top of the photo.
+const COVER_ALIGN_TOP = new Set(["jimmy-carnes"]);
 
 function ResultBadge({ meetId }: { meetId: string }) {
   const results = allResultsForMeet(meetId);
@@ -99,7 +102,9 @@ function Chapter({ meet, index }: { meet: Meet; index: number }) {
             height={cover.h}
             w={1080}
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
+              COVER_ALIGN_TOP.has(meet.id) ? "object-top" : ""
+            }`}
           />
         </button>
         {strip.length > 0 && (
@@ -129,6 +134,70 @@ function Chapter({ meet, index }: { meet: Meet; index: number }) {
   );
 }
 
+function Season({
+  season,
+  meets: seasonMeets,
+  startIndex,
+}: {
+  season: string;
+  meets: Meet[];
+  startIndex: number;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const listRef = useRef<HTMLDivElement>(null);
+  const visible = expanded ? seasonMeets : seasonMeets.slice(0, 1);
+  const hidden = seasonMeets.length - 1;
+
+  // Animate only the newly revealed chapters (everything after the first).
+  // Skipped on collapse, so the always-visible first event never re-animates.
+  useGSAP(
+    () => {
+      if (!expanded) return;
+      const revealed = gsap.utils
+        .toArray<HTMLElement>(".chapter", listRef.current)
+        .slice(1);
+      if (!revealed.length) return;
+      gsap.from(revealed, {
+        y: 40,
+        autoAlpha: 0,
+        duration: 0.8,
+        stagger: 0.12,
+        ease: "power3.out",
+        overwrite: true,
+      });
+    },
+    { scope: listRef, dependencies: [expanded] }
+  );
+
+  return (
+    <div className="mt-[clamp(2rem,5vw,4rem)]">
+      <div className="sticky top-0 z-10 -mx-[clamp(1rem,4vw,3rem)] bg-ink/85 px-[clamp(1rem,4vw,3rem)] py-4 backdrop-blur">
+        <div className="flex items-baseline justify-between">
+          <h3 className="font-serif text-xl italic text-garnet-bright md:text-2xl">
+            {season}
+          </h3>
+          <span className="overline">{seasonMeets.length} meets</span>
+        </div>
+      </div>
+      <div ref={listRef} className="divide-y divide-bone/10">
+        {visible.map((m, i) => (
+          <Chapter key={m.id} meet={m} index={startIndex + i} />
+        ))}
+      </div>
+      {hidden > 0 && (
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          data-cursor="hover"
+          className="mt-6 inline-flex items-center gap-2 text-sm text-bone/70 transition hover:text-gold"
+        >
+          {expanded ? "Show less" : `Show ${hidden} more`}
+          <span aria-hidden>{expanded ? "↑" : "↓"}</span>
+        </button>
+      )}
+    </div>
+  );
+}
+
 export function Chapters() {
   const root = useRef<HTMLElement>(null);
 
@@ -138,6 +207,7 @@ export function Chapters() {
     "Indoor 2025",
     "Outdoor 2025",
   ];
+  let start = 0;
   const grouped = seasonsInOrder
     .map((season) => ({
       season,
@@ -145,7 +215,12 @@ export function Chapters() {
         (m) => m.season === season && !HIDDEN_FROM_SEASONS.has(m.id)
       ),
     }))
-    .filter((g) => g.meets.length);
+    .filter((g) => g.meets.length)
+    .map((g) => {
+      const startIndex = start;
+      start += g.meets.length;
+      return { ...g, startIndex };
+    });
 
   useGSAP(
     () => {
@@ -167,8 +242,6 @@ export function Chapters() {
     { scope: root }
   );
 
-  let counter = 0;
-
   return (
     <section ref={root} className="relative bg-ink py-[clamp(3rem,8vw,7rem)]">
       <div className="mx-auto max-w-7xl px-[clamp(1rem,4vw,3rem)]">
@@ -180,21 +253,12 @@ export function Chapters() {
         </div>
 
         {grouped.map((g) => (
-          <div key={g.season} className="mt-[clamp(2rem,5vw,4rem)]">
-            <div className="sticky top-0 z-10 -mx-[clamp(1rem,4vw,3rem)] bg-ink/85 px-[clamp(1rem,4vw,3rem)] py-4 backdrop-blur">
-              <div className="flex items-baseline justify-between">
-                <h3 className="font-serif text-xl italic text-garnet-bright md:text-2xl">
-                  {g.season}
-                </h3>
-                <span className="overline">{g.meets.length} meets</span>
-              </div>
-            </div>
-            <div className="divide-y divide-bone/10">
-              {g.meets.map((m) => (
-                <Chapter key={m.id} meet={m} index={counter++} />
-              ))}
-            </div>
-          </div>
+          <Season
+            key={g.season}
+            season={g.season}
+            meets={g.meets}
+            startIndex={g.startIndex}
+          />
         ))}
       </div>
     </section>

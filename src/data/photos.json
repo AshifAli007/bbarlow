@@ -3,7 +3,7 @@
   "cloudFolder": "beth",
   "cloudName": null,
   "totals": {
-    "photos": 288,
+    "photos": 258,
     "meets": 18
   },
   "seasons": [
@@ -24,7 +24,7 @@
       "dateISO": "2024-09-26",
       "dateLabel": "September 26, 2024 – September 27, 2024",
       "photoCount": 30,
-      "cover": "beth/nuttycombe/_Elizabeth_Barlow___Nuttycombe___September_27__2024DSC04698",
+      "cover": "beth/nuttycombe/_Elizabeth_Barlow___Nuttycombe___September_27__2024DSC05192",
       "photos": [
         {
           "publicId": "beth/nuttycombe/Addison_Boyer__Elizabeth_Barlow___Nuttycombe_PreMeet___September_26__2024DSC04251",
@@ -504,39 +504,9 @@
       "location": "Tallahassee, FL",
       "dateISO": "2024-10-30",
       "dateLabel": "October 30, 2024",
-      "photoCount": 9,
-      "cover": "beth/team-portraits/Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00972",
+      "photoCount": 4,
+      "cover": "beth/team-portraits/Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00977",
       "photos": [
-        {
-          "publicId": "beth/team-portraits/Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00972",
-          "filename": "Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00972.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Suus Altorf",
-            "Rebecca Bergnes"
-          ],
-          "solo": false,
-          "code": "DSC00972",
-          "dateISO": "2024-10-30"
-        },
-        {
-          "publicId": "beth/team-portraits/Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00975",
-          "filename": "Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00975.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Suus Altorf",
-            "Rebecca Bergnes"
-          ],
-          "solo": false,
-          "code": "DSC00975",
-          "dateISO": "2024-10-30"
-        },
         {
           "publicId": "beth/team-portraits/Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00977",
           "filename": "Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00977.jpg",
@@ -550,36 +520,6 @@
           ],
           "solo": false,
           "code": "DSC00977",
-          "dateISO": "2024-10-30"
-        },
-        {
-          "publicId": "beth/team-portraits/Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00980",
-          "filename": "Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00980.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Suus Altorf",
-            "Rebecca Bergnes"
-          ],
-          "solo": false,
-          "code": "DSC00980",
-          "dateISO": "2024-10-30"
-        },
-        {
-          "publicId": "beth/team-portraits/Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00982",
-          "filename": "Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00982.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Suus Altorf",
-            "Rebecca Bergnes"
-          ],
-          "solo": false,
-          "code": "DSC00982",
           "dateISO": "2024-10-30"
         },
         {
@@ -626,21 +566,6 @@
           "solo": false,
           "code": "DSC00994",
           "dateISO": "2024-10-30"
-        },
-        {
-          "publicId": "beth/team-portraits/Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00996",
-          "filename": "Elizabeth_Barlow__Rebecca_Bergnes__Suus_Altorf___FIT_CHECK___October_30__2024___DSC00996.jpg",
-          "w": 3005,
-          "h": 4507,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Suus Altorf",
-            "Rebecca Bergnes"
-          ],
-          "solo": false,
-          "code": "DSC00996",
-          "dateISO": "2024-10-30"
         }
       ]
     },
@@ -654,7 +579,7 @@
       "location": "Charlottesville, VA",
       "dateISO": "2024-10-31",
       "dateLabel": "October 31, 2024 – November 1, 2024",
-      "photoCount": 18,
+      "photoCount": 17,
       "cover": "beth/acc-xc/Elizabeth_Barlow__ACCS_PREEMEET___October_31__2024_DSC01219",
       "photos": [
         {
@@ -810,19 +735,6 @@
           ],
           "solo": true,
           "code": "DSC01866",
-          "dateISO": "2024-11-01"
-        },
-        {
-          "publicId": "beth/acc-xc/Elizabeth_Barlow___ACC-s___November_01__2024___DSC01867",
-          "filename": "Elizabeth_Barlow___ACC's___November_01__2024___DSC01867.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow"
-          ],
-          "solo": true,
-          "code": "DSC01867",
           "dateISO": "2024-11-01"
         },
         {
@@ -1291,7 +1203,7 @@
       "dateISO": "2024-11-15",
       "dateLabel": "November 15, 2024",
       "photoCount": 21,
-      "cover": "beth/ncaa-south-region/ARP_Regional_Meet___Elizabeth_Barlow___November_15__2024___DSC04381",
+      "cover": "beth/ncaa-south-region/ARP_Regional_Meet___Agnes_McTighe__Bieke_Schipperan__Brooke_Mullins__Elizabeth_Barlow___November_15__2024___DSC05764",
       "photos": [
         {
           "publicId": "beth/ncaa-south-region/ARP_Regional_Meet___Agnes_McTighe__Bieke_Schipperan__Brooke_Mullins__Elizabeth_Barlow___November_15__2024___DSC05764",
@@ -1598,274 +1510,9 @@
       "location": "Tallahassee, FL",
       "dateISO": "2024-11-20",
       "dateLabel": "November 20, 2024",
-      "photoCount": 21,
+      "photoCount": 3,
       "cover": "beth/pre-nationals/Travel_Day___Elizabeth_Barlow___November_20__2024___DSC07492",
       "photos": [
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07601",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07601.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07601",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07603",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07603.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07603",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07605",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07605.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07605",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07609",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07609.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07609",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07611",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07611.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07611",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07616",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07616.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07616",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07620",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07620.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07620",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07623",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07623.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07623",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07626",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07626.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07626",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07634",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07634.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07634",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07635",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07635.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07635",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07636",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07636.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07636",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07639",
-          "filename": "Travel_Day___Addison_Boyer__Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07639.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins",
-            "Addison Boyer"
-          ],
-          "solo": false,
-          "code": "DSC07639",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07580",
-          "filename": "Travel_Day___Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07580.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins"
-          ],
-          "solo": false,
-          "code": "DSC07580",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07589",
-          "filename": "Travel_Day___Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07589.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins"
-          ],
-          "solo": false,
-          "code": "DSC07589",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07591",
-          "filename": "Travel_Day___Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07591.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins"
-          ],
-          "solo": false,
-          "code": "DSC07591",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07597",
-          "filename": "Travel_Day___Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07597.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins"
-          ],
-          "solo": false,
-          "code": "DSC07597",
-          "dateISO": "2024-11-20"
-        },
-        {
-          "publicId": "beth/pre-nationals/Travel_Day___Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07599",
-          "filename": "Travel_Day___Brooke_Mullins__Elizabeth_Barlow___November_20__2024___DSC07599.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Brooke Mullins"
-          ],
-          "solo": false,
-          "code": "DSC07599",
-          "dateISO": "2024-11-20"
-        },
         {
           "publicId": "beth/pre-nationals/Travel_Day___Elizabeth_Barlow___November_20__2024___DSC07492",
           "filename": "Travel_Day___Elizabeth_Barlow___November_20__2024___DSC07492.jpg",
@@ -2447,7 +2094,7 @@
       "dateISO": "2025-01-17",
       "dateLabel": "January 17, 2025",
       "photoCount": 6,
-      "cover": "beth/jimmy-carnes/Elizabeth_Barlow_JIMMY_CARNES1_17_DSC04049",
+      "cover": "beth/jimmy-carnes/Coach_Cody_Halsey__Elizabeth_Barlow_JIMMY_CARNES1_17_DSC04103",
       "photos": [
         {
           "publicId": "beth/jimmy-carnes/Bieke_Schipperen__Elizabeth_Barlow_JIMMY_CARNES1_17_DSC03964",
@@ -2467,7 +2114,7 @@
           "publicId": "beth/jimmy-carnes/Coach_Cody_Halsey__Elizabeth_Barlow_JIMMY_CARNES1_17_DSC04103",
           "filename": "Coach_Cody_Halsey__Elizabeth_Barlow_JIMMY_CARNES1_17_DSC04103.jpg",
           "w": 4672,
-          "h": 7008,
+          "h": 5606,
           "orientation": "portrait",
           "athletes": [
             "Elizabeth Barlow",
@@ -2681,7 +2328,7 @@
       "dateISO": "2025-01-30",
       "dateLabel": "January 30, 2025 – February 1, 2025",
       "photoCount": 9,
-      "cover": "beth/lenny-lyles/Elizabeth_Barlow_Louisville_1_30_DSC02933",
+      "cover": "beth/lenny-lyles/Brooke_Mullins__Coach_Cody_Halsey__Elizabeth_Barlow__Emily_Brown_Louisville_1_30_DSC02962",
       "photos": [
         {
           "publicId": "beth/lenny-lyles/Brooke_Mullins__Coach_Cody_Halsey__Elizabeth_Barlow__Emily_Brown_Louisville_1_30_DSC02962",
@@ -3052,7 +2699,7 @@
       "location": "Louisville, KY",
       "dateISO": "2025-03-02",
       "dateLabel": "March 2, 2025 – March 3, 2025",
-      "photoCount": 23,
+      "photoCount": 21,
       "cover": "beth/acc-indoor/DSC00020___Elizabeth_Barlow___March_03__2025",
       "photos": [
         {
@@ -3160,19 +2807,6 @@
           "dateISO": "2025-03-02"
         },
         {
-          "publicId": "beth/acc-indoor/DSC06577___Elizabeth_Barlow___March_02__2025",
-          "filename": "DSC06577___Elizabeth_Barlow___March_02__2025.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow"
-          ],
-          "solo": true,
-          "code": "DSC06577",
-          "dateISO": "2025-03-02"
-        },
-        {
           "publicId": "beth/acc-indoor/DSC06585___Elizabeth_Barlow___March_02__2025",
           "filename": "DSC06585___Elizabeth_Barlow___March_02__2025.jpg",
           "w": 3072,
@@ -3196,19 +2830,6 @@
           ],
           "solo": true,
           "code": "DSC06587",
-          "dateISO": "2025-03-02"
-        },
-        {
-          "publicId": "beth/acc-indoor/DSC06589___Elizabeth_Barlow___March_02__2025",
-          "filename": "DSC06589___Elizabeth_Barlow___March_02__2025.jpg",
-          "w": 3072,
-          "h": 4608,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow"
-          ],
-          "solo": true,
-          "code": "DSC06589",
           "dateISO": "2025-03-02"
         },
         {
@@ -3374,7 +2995,7 @@
       "dateISO": "2025-03-28",
       "dateLabel": "March 28, 2025",
       "photoCount": 2,
-      "cover": "beth/fsu-relays/DSC01051___Elizabeth_Barlow___March_28__2025",
+      "cover": "beth/fsu-relays/DSC01167___Elizabeth_Barlow___March_28__2025",
       "photos": [
         {
           "publicId": "beth/fsu-relays/DSC01051___Elizabeth_Barlow___March_28__2025",
@@ -3414,8 +3035,8 @@
       "location": "Tallahassee, FL",
       "dateISO": "2025-04-22",
       "dateLabel": "April 22, 2025",
-      "photoCount": 8,
-      "cover": "beth/banquet/Elizabeth_Barlow_Banquet_April_22__2025_403A8917",
+      "photoCount": 7,
+      "cover": "beth/banquet/Coach_Cody_Halsey__Elizabeth_Barlow_Banquet_April_22__2025_403A8920",
       "photos": [
         {
           "publicId": "beth/banquet/Coach_Cody_Halsey__Elizabeth_Barlow_Banquet_April_22__2025_403A8920",
@@ -3514,19 +3135,6 @@
           "solo": false,
           "code": "DSC04461",
           "dateISO": "2025-04-22"
-        },
-        {
-          "publicId": "beth/banquet/Elizabeth_Barlow_Banquet_April_22__2025_403A8917",
-          "filename": "Elizabeth_Barlow_Banquet_April_22__2025_403A8917.jpg",
-          "w": 3072,
-          "h": 5472,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow"
-          ],
-          "solo": true,
-          "code": "403A8917",
-          "dateISO": "2025-04-22"
         }
       ]
     },
@@ -3540,7 +3148,7 @@
       "location": "Tallahassee, FL",
       "dateISO": "2025-05-02",
       "dateLabel": "May 2, 2025 – May 6, 2025",
-      "photoCount": 27,
+      "photoCount": 25,
       "cover": "beth/outdoor-may/DSC05646__Ava_Povich__Bieke_Schipperen__Cody_Halsey__Elizabeth_Barlow__May_06__2025",
       "photos": [
         {
@@ -3824,19 +3432,6 @@
           "dateISO": "2025-05-02"
         },
         {
-          "publicId": "beth/outdoor-may/DSC08121__Elizabeth_Barlow__May_02__2025",
-          "filename": "DSC08121__Elizabeth_Barlow__May_02__2025.jpg",
-          "w": 4672,
-          "h": 7008,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow"
-          ],
-          "solo": true,
-          "code": "DSC08121",
-          "dateISO": "2025-05-02"
-        },
-        {
           "publicId": "beth/outdoor-may/DSC08158__Elizabeth_Barlow__May_02__2025",
           "filename": "DSC08158__Elizabeth_Barlow__May_02__2025.jpg",
           "w": 4672,
@@ -3848,19 +3443,6 @@
           "solo": true,
           "code": "DSC08158",
           "dateISO": "2025-05-02"
-        },
-        {
-          "publicId": "beth/outdoor-may/DSC09496__Elizabeth_Barlow__May_03__2025",
-          "filename": "DSC09496__Elizabeth_Barlow__May_03__2025.jpg",
-          "w": 4672,
-          "h": 7008,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow"
-          ],
-          "solo": true,
-          "code": "DSC09496",
-          "dateISO": "2025-05-03"
         },
         {
           "publicId": "beth/outdoor-may/DSC09499__Elizabeth_Barlow__Nicole_Dinan__May_03__2025",
@@ -3941,7 +3523,7 @@
       "dateISO": "2025-05-14",
       "dateLabel": "May 14, 2025 – May 17, 2025",
       "photoCount": 16,
-      "cover": "beth/acc-outdoor/DSC09292___Elizabeth_Barlow___May_14__2025",
+      "cover": "beth/acc-outdoor/DSC09537___Elizabeth_Barlow___May_17__2025",
       "photos": [
         {
           "publicId": "beth/acc-outdoor/DSC09292___Elizabeth_Barlow___May_14__2025",
@@ -4163,7 +3745,7 @@
       "location": "",
       "dateISO": null,
       "dateLabel": "Undated",
-      "photoCount": 9,
+      "photoCount": 8,
       "cover": "beth/off-the-clock/Agnes_McTighe__Bieke_Schipperen__Brooke_Mullins__Elizabeth_Barlow_10",
       "photos": [
         {
@@ -4283,20 +3865,6 @@
           ],
           "solo": false,
           "code": "2",
-          "dateISO": null
-        },
-        {
-          "publicId": "beth/off-the-clock/Elizabeth_Barlow__Suus_Altorf",
-          "filename": "Elizabeth_Barlow__Suus_Altorf.jpg",
-          "w": 4305,
-          "h": 6429,
-          "orientation": "portrait",
-          "athletes": [
-            "Elizabeth Barlow",
-            "Suus Altorf"
-          ],
-          "solo": false,
-          "code": null,
           "dateISO": null
         }
       ]
