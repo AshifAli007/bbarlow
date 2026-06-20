@@ -15,6 +15,7 @@ export function Ledger() {
     () => {
       ScrollTrigger.batch(".ledger-row", {
         start: "top 92%",
+        once: true,
         onEnter: (els) =>
           gsap.from(els, {
             y: 18,

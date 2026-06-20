@@ -139,6 +139,7 @@ export function Chapters() {
     () => {
       ScrollTrigger.batch(".chapter", {
         start: "top 82%",
+        once: true,
         onEnter: (els) =>
           gsap.from(els, {
             y: 40,

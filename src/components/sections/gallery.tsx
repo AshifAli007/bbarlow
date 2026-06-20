@@ -143,7 +143,7 @@ export function Gallery() {
                 </div>
 
                 {isGate ? (
-                  <span className="pointer-events-none absolute inset-x-0 top-0 flex flex-col items-center gap-1 pt-[clamp(1rem,3vw,2rem)] text-bone">
+                  <span className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-1 text-bone">
                     <span className="overline transition-colors group-hover:text-gold">
                       Show more
                     </span>
