@@ -8,6 +8,7 @@ import { Manifesto } from "@/components/sections/manifesto";
 import { Numbers } from "@/components/sections/numbers";
 import { Journey } from "@/components/sections/journey";
 import { Chapters } from "@/components/sections/chapters";
+import { InMotion } from "@/components/sections/in-motion";
 import { Gallery } from "@/components/sections/gallery";
 import { Ledger } from "@/components/sections/ledger";
 import { Footer } from "@/components/sections/footer";
@@ -24,6 +25,7 @@ export default function Home() {
         <Numbers />
         <Journey />
         <Chapters />
+        <InMotion />
         <Gallery />
         <Ledger />
         <Footer />
