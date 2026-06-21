@@ -4,6 +4,8 @@ export type PB = {
   date: string;
   venue: string;
   note?: string;
+  /** standout honor, e.g. an all-time school ranking */
+  accolade?: string;
   flagship?: boolean;
 };
 
@@ -54,6 +56,7 @@ export const personalBests: PB[] = [
     date: "Feb 15, 2025",
     venue: "Boston University, MA",
     note: "World Athletics score 1086",
+    accolade: "No. 8 in FSU history",
     flagship: true,
   },
   { event: "Mile", time: "4:44.28", date: "Mar 2, 2025", venue: "Louisville, KY" },

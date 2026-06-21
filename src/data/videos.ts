@@ -1,6 +1,12 @@
 export type Video = {
-  /** YouTube video id */
-  id: string;
+  /** YouTube video id. Omit for self-hosted clips (use `cloudVideo` instead). */
+  id?: string;
+  /** Cloudinary public id for a self-hosted clip (streamed + poster-framed). */
+  cloudVideo?: string;
+  /** Second in the clip to grab the poster frame from (self-hosted). */
+  posterSecond?: number;
+  /** Vertical (9:16) clip: shown in a portrait frame in the player. */
+  portrait?: boolean;
   /** Short title shown on the card */
   title: string;
   /** Long event name */
@@ -13,11 +19,13 @@ export type Video = {
   result?: string;
   /** What the footage is: full replay, stream, news segment, etc. */
   note?: string;
-  /** Canonical watch URL */
-  youtube: string;
+  /** Canonical watch URL (YouTube) shown in the player footer */
+  youtube?: string;
+  /** Source link for self-hosted clips (e.g. the original Instagram post) */
+  instagram?: string;
   /**
-   * Which still to use as the poster. 0 (or omitted) = the official thumbnail;
-   * 1/2/3 = YouTube's auto-captured frames at roughly 25% / 50% / 75%.
+   * Which still to use as the poster for YouTube clips. 0 (or omitted) = the
+   * official thumbnail; 1/2/3 = auto-captured frames at roughly 25/50/75%.
    */
   thumb?: 0 | 1 | 2 | 3;
 };
@@ -59,6 +67,17 @@ export const videos: Video[] = [
     result: "20:25.4 · 17th · All-Region",
     note: "Full race",
     youtube: "https://www.youtube.com/watch?v=5_tq0a_eVeU",
+  },
+  {
+    cloudVideo: "beth/interviews/elizabeth-barlow-reflects",
+    posterSecond: 0,
+    portrait: true,
+    title: "Post-Race Interview",
+    event: "Elizabeth Barlow reflects on her All-Region finish",
+    meetId: "ncaa-south-region",
+    year: 2024,
+    note: "Interview",
+    instagram: "https://www.instagram.com/p/DCZ1f1ixWRv/",
   },
   {
     id: "l77_d678sA0",

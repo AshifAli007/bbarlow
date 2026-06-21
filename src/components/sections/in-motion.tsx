@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { videos, frameUrl, thumbUrl, type Video } from "@/data/videos";
+import { videoPoster } from "@/lib/cloudinary";
 import { VideoModal } from "@/components/video-modal";
 
 function PlayGlyph({ size = "md" }: { size?: "sm" | "md" }) {
@@ -35,7 +36,18 @@ function Poster({
 }) {
   const [hq, setHq] = useState(false);
   const fallback = () => setHq(true);
-  const src = frame === 0 ? thumbUrl(video.id, hq ? "hq" : "maxres") : frameUrl(video.id, frame);
+  // Self-hosted clips derive a face-cropped 16:9 still from the Cloudinary video.
+  const isYouTube = !!video.id;
+  const src = !isYouTube
+    ? videoPoster(video.cloudVideo!, video.posterSecond ?? 0, {
+        w: 800,
+        h: 450,
+        crop: "fill",
+        gravity: "auto",
+      })
+    : frame === 0
+      ? thumbUrl(video.id!, hq ? "hq" : "maxres")
+      : frameUrl(video.id!, frame);
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
@@ -43,9 +55,9 @@ function Poster({
       src={src}
       alt={video.event}
       loading="lazy"
-      onError={() => frame === 0 && !hq && fallback()}
+      onError={() => isYouTube && frame === 0 && !hq && fallback()}
       onLoad={(e) => {
-        if (frame === 0 && !hq && e.currentTarget.naturalWidth < 320) fallback();
+        if (isYouTube && frame === 0 && !hq && e.currentTarget.naturalWidth < 320) fallback();
       }}
       className={className}
     />
@@ -116,7 +128,10 @@ export function InMotion() {
           style={{ scrollbarWidth: "none" }}
         >
           {videos.map((v) => (
-            <div key={v.id} className="film-reveal w-[78vw] shrink-0 sm:w-[22rem]">
+            <div
+              key={v.id ?? v.cloudVideo}
+              className="film-reveal w-[78vw] shrink-0 sm:w-[22rem]"
+            >
               <button
                 onClick={() => {
                   if (!drag.current.moved) setActive(v);

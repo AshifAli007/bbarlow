@@ -84,6 +84,12 @@ export function Numbers() {
           <div className="md:col-span-3">
             <span className="overline text-gold">Flagship</span>
             <p className="mt-3 font-display text-3xl text-bone">{flagship.event}</p>
+            {flagship.accolade && (
+              <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-gold/50 px-3 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold">
+                <span aria-hidden>★</span>
+                {flagship.accolade}
+              </span>
+            )}
           </div>
           <div className="md:col-span-6">
             <CountTime

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { embedUrl, type Video } from "@/data/videos";
+import { videoUrl, videoPoster } from "@/lib/cloudinary";
 
 export function VideoModal({
   video,
@@ -39,18 +40,34 @@ export function VideoModal({
       </button>
 
       <figure
-        className="flex w-full max-w-[88rem] flex-col"
+        className={`flex w-full flex-col ${video.portrait ? "max-w-[26rem]" : "max-w-[88rem]"}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="aspect-video w-full overflow-hidden rounded-sm bg-black shadow-2xl">
-          <iframe
-            key={video.id}
-            src={embedUrl(video.id)}
-            title={video.event}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="h-full w-full border-0"
-          />
+        <div
+          className={`overflow-hidden rounded-sm bg-black shadow-2xl ${
+            video.portrait ? "mx-auto aspect-[9/16] h-[78vh]" : "aspect-video w-full"
+          }`}
+        >
+          {video.cloudVideo ? (
+            <video
+              key={video.cloudVideo}
+              src={videoUrl(video.cloudVideo)}
+              poster={videoPoster(video.cloudVideo, video.posterSecond ?? 0)}
+              controls
+              autoPlay
+              playsInline
+              className="h-full w-full object-cover"
+            />
+          ) : video.id ? (
+            <iframe
+              key={video.id}
+              src={embedUrl(video.id)}
+              title={video.event}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="h-full w-full border-0"
+            />
+          ) : null}
         </div>
         <figcaption className="mt-4 flex flex-wrap items-baseline gap-x-5 gap-y-1 text-sm text-bone/70">
           <span className="overline text-gold">
@@ -58,16 +75,29 @@ export function VideoModal({
           </span>
           {video.result && <span className="tnum text-bone/85">{video.result}</span>}
           {video.note && <span className="text-bone/55">{video.note}</span>}
-          <a
-            href={video.youtube}
-            target="_blank"
-            rel="noreferrer"
-            data-cursor="hover"
-            className="ml-auto inline-flex items-center gap-1 text-bone/70 underline-offset-4 transition hover:text-gold hover:underline"
-          >
-            Watch on YouTube
-            <span aria-hidden>↗</span>
-          </a>
+          {video.youtube ? (
+            <a
+              href={video.youtube}
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="hover"
+              className="ml-auto inline-flex items-center gap-1 text-bone/70 underline-offset-4 transition hover:text-gold hover:underline"
+            >
+              Watch on YouTube
+              <span aria-hidden>↗</span>
+            </a>
+          ) : video.instagram ? (
+            <a
+              href={video.instagram}
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="hover"
+              className="ml-auto inline-flex items-center gap-1 text-bone/70 underline-offset-4 transition hover:text-gold hover:underline"
+            >
+              View on Instagram
+              <span aria-hidden>↗</span>
+            </a>
+          ) : null}
         </figcaption>
       </figure>
     </div>

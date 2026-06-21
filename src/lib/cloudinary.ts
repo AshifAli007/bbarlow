@@ -69,6 +69,34 @@ export function lightboxWidth(vw: number, vh: number, dpr = 1): number {
   return buckets.find((b) => b >= needed) ?? buckets[buckets.length - 1];
 }
 
+/** Streaming URL for a self-hosted clip stored on Cloudinary. */
+export function videoUrl(publicId: string): string {
+  if (CLOUD) {
+    return `https://res.cloudinary.com/${CLOUD}/video/upload/f_auto,q_auto/${publicId}.mp4`;
+  }
+  return `/videos/${flat(publicId)}.mp4`;
+}
+
+/** Poster frame (still) grabbed from a Cloudinary video at `second` seconds. */
+export function videoPoster(publicId: string, second = 0, opts: ImgOpts = {}): string {
+  if (CLOUD) {
+    const { w, h, crop = "fill", gravity = "auto" } = opts;
+    const t = [
+      "f_auto",
+      "q_auto",
+      `so_${second}`,
+      w ? `w_${w}` : null,
+      h ? `h_${h}` : null,
+      w || h ? `c_${crop}` : null,
+      (w || h) && crop === "fill" ? `g_${gravity}` : null,
+    ]
+      .filter(Boolean)
+      .join(",");
+    return `https://res.cloudinary.com/${CLOUD}/video/upload/${t}/${publicId}.jpg`;
+  }
+  return `/videos/${flat(publicId)}.jpg`;
+}
+
 /** Responsive srcSet for a target display width (Cloudinary only). */
 export function srcSet(publicId: string, widths: number[], opts: ImgOpts = {}) {
   if (!CLOUD) return undefined;
