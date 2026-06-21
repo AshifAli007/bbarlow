@@ -58,7 +58,25 @@ export function Ledger() {
                   className="ledger-row grid grid-cols-12 items-baseline gap-2 border-b border-ink/12 py-3 text-ink"
                 >
                   <span className="col-span-12 font-medium md:col-span-5">
-                    {r.meet}
+                    {r.source ? (
+                      <a
+                        href={r.source}
+                        target="_blank"
+                        rel="noreferrer"
+                        data-cursor="hover"
+                        className="group/src inline-flex items-baseline gap-1 underline-offset-4 transition hover:text-garnet hover:underline hover:decoration-garnet/40"
+                      >
+                        {r.meet}
+                        <span
+                          aria-hidden
+                          className="text-[0.7em] text-ink/30 transition group-hover/src:text-garnet"
+                        >
+                          ↗
+                        </span>
+                      </a>
+                    ) : (
+                      r.meet
+                    )}
                     <span className="ml-2 text-ink/40">{r.location}</span>
                   </span>
                   <span className="overline col-span-3 text-ink/60 md:col-span-2">

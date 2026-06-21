@@ -13,6 +13,8 @@ export type Race = {
   note?: string;
   /** links this result to a photo meet id in photos.json */
   meetId?: string;
+  /** official result page (FlashResults / TFRRS / meet site); makes the meet name a link */
+  source?: string;
 };
 
 /**
@@ -92,9 +94,12 @@ export const races: Race[] = [
     dateLabel: "January 11, 2025",
     distance: "Mile",
     time: "4:49.02",
+    place: "6th",
     location: "Clemson, SC",
     team: "Florida State",
     season: "Indoor 2025",
+    source:
+      "https://flashresults.com/2025_Meets/Indoor/01-11_ClemsonInvitational/005-1.pdf",
   },
   {
     meet: "Jimmy Carnes Invitational",
@@ -102,6 +107,7 @@ export const races: Race[] = [
     dateLabel: "January 17, 2025",
     distance: "Mile",
     time: "4:45.16",
+    source: "http://live.halfmiletiming.com/meets/712/events/29/Final",
     location: "Gainesville, FL",
     team: "Florida State",
     season: "Indoor 2025",
@@ -113,6 +119,7 @@ export const races: Race[] = [
     dateLabel: "January 31, 2025",
     distance: "3000m",
     time: "9:16.64",
+    source: "https://live.dcracetiming.com/meets/43158/events/individual/1580145",
     place: "3rd",
     location: "Louisville, KY",
     team: "Florida State",
@@ -125,6 +132,7 @@ export const races: Race[] = [
     dateLabel: "February 15, 2025",
     distance: "3000m",
     time: "9:12.29",
+    source: "http://live.lancertiming.com/meets/321/events/43/Final",
     location: "Boston, MA",
     team: "Florida State",
     season: "Indoor 2025",
@@ -137,6 +145,7 @@ export const races: Race[] = [
     dateLabel: "March 2, 2025",
     distance: "Mile",
     time: "4:44.28",
+    source: "https://flashresults.com/2025_Meets/Indoor/03-01_ACC/005-1_compiled.htm",
     location: "Louisville, KY",
     team: "Florida State",
     season: "Indoor 2025",
@@ -192,6 +201,7 @@ export const races: Race[] = [
     dateLabel: "October 3, 2025",
     distance: "6K",
     time: "21:14.94",
+    source: "https://results.lakeshoreathleticservices.com/meets/55108/events/xc/2120148",
     location: "Chicago, IL",
     team: "Boston College",
     season: "Cross Country 2025",
@@ -202,6 +212,7 @@ export const races: Race[] = [
     dateLabel: "October 17, 2025",
     distance: "6K",
     time: "21:11.50",
+    source: "https://live.pttiming.com/xc-ptt.html?mid=8212",
     location: "Columbia, MO",
     team: "Boston College",
     season: "Cross Country 2025",
@@ -212,6 +223,7 @@ export const races: Race[] = [
     dateLabel: "October 31, 2025",
     distance: "6K",
     time: "20:37.70",
+    source: "https://ky.milesplit.com/meets/716726-acc-cross-country-championships-2025/results/1239010/formatted/",
     location: "Louisville, KY",
     team: "Boston College",
     season: "Cross Country 2025",
@@ -222,6 +234,7 @@ export const races: Race[] = [
     dateLabel: "November 14, 2025",
     distance: "6K",
     time: "20:31.20",
+    source: "https://results.millenniumrunning.com/meets/56508/events/xc/2154582",
     location: "Contoocook, NH",
     team: "Boston College",
     season: "Cross Country 2025",
@@ -232,6 +245,7 @@ export const races: Race[] = [
     dateLabel: "November 22, 2025",
     distance: "6K",
     time: "20:37.0",
+    source: "https://live.pttiming.com/xc-ptt.html?mid=8126",
     location: "Columbia, MO",
     team: "Boston College",
     season: "Cross Country 2025",
@@ -244,6 +258,8 @@ export const races: Race[] = [
     dateLabel: "December 6, 2025",
     distance: "3000m",
     time: "9:26.06",
+    source:
+      "https://www.tfrrs.org/results/93353/5710871/BU_Sharon_Colyear-Danville_Season_Opener_Collegiate/Womens-3000-Meters",
     place: "21st",
     location: "Boston, MA",
     team: "Boston College",
