@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
 import { SmartImage } from "@/components/smart-image";
 import { profile } from "@/data/profile";
-import { soloPhoto } from "@/lib/photos";
+import { findPhoto } from "@/lib/photos";
 
 const LOCATIONS = [
   "Manchester",
@@ -76,7 +76,9 @@ function FooterLink({ item }: { item: FooterLinkItem }) {
 
 export function Footer() {
   const root = useRef<HTMLElement>(null);
-  const closing = soloPhoto(8);
+  const closing = findPhoto(
+    "beth/acc-xc/Elizabeth_Barlow__ACCS_PREEMEET___October_31__2024_DSC01219"
+  );
 
   useGSAP(
     () => {
