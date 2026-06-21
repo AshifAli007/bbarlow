@@ -5,9 +5,6 @@ import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { videos, frameUrl, thumbUrl, type Video } from "@/data/videos";
 import { VideoModal } from "@/components/video-modal";
 
-// Temporary: set false (or delete the switcher below) once frames are locked in.
-const FRAME_PICKER = true;
-
 function PlayGlyph({ size = "md" }: { size?: "sm" | "md" }) {
   const dim = size === "md" ? "h-16 w-16" : "h-12 w-12";
   return (
@@ -22,22 +19,33 @@ function PlayGlyph({ size = "md" }: { size?: "sm" | "md" }) {
 }
 
 /**
- * YouTube poster with a graceful maxres -> hq fallback. Some videos have no
- * maxresdefault; YouTube then returns a 120x90 gray placeholder with a 200
- * status (so onError never fires), which we detect by the tiny dimensions.
+ * YouTube poster. Frame 0 (the official thumbnail) falls back gracefully:
+ * some videos have no maxresdefault, in which case YouTube returns a 120x90
+ * gray placeholder with a 200 status (so onError never fires), which we detect
+ * by the tiny dimensions. Frames 1-3 are mid-video grabs at fixed hq size.
  */
-function Poster({ video, className }: { video: Video; className?: string }) {
+function Poster({
+  video,
+  frame = 0,
+  className,
+}: {
+  video: Video;
+  frame?: 0 | 1 | 2 | 3;
+  className?: string;
+}) {
   const [hq, setHq] = useState(false);
   const fallback = () => setHq(true);
+  const src = frame === 0 ? thumbUrl(video.id, hq ? "hq" : "maxres") : frameUrl(video.id, frame);
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={thumbUrl(video.id, hq ? "hq" : "maxres")}
+      key={src}
+      src={src}
       alt={video.event}
       loading="lazy"
-      onError={() => !hq && fallback()}
+      onError={() => frame === 0 && !hq && fallback()}
       onLoad={(e) => {
-        if (!hq && e.currentTarget.naturalWidth < 320) fallback();
+        if (frame === 0 && !hq && e.currentTarget.naturalWidth < 320) fallback();
       }}
       className={className}
     />
@@ -108,40 +116,42 @@ export function InMotion() {
           style={{ scrollbarWidth: "none" }}
         >
           {videos.map((v) => (
-            <button
-              key={v.id}
-              onClick={() => {
-                if (!drag.current.moved) setActive(v);
-              }}
-              data-cursor-label="Play"
-              aria-label={`Play ${v.event}`}
-              className="film-reveal group w-[78vw] shrink-0 text-left sm:w-[22rem]"
-            >
-              <span className="relative block aspect-video overflow-hidden rounded-sm bg-ink-soft">
-                <Poster
-                  video={v}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <span className="absolute inset-0 bg-ink/10 transition-colors duration-300 group-hover:bg-ink/30" />
-                <span className="absolute inset-0 grid place-items-center">
-                  <PlayGlyph size="sm" />
-                </span>
-                {v.note && (
-                  <span className="absolute left-2 top-2 rounded-full bg-ink/70 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-bone/80 backdrop-blur-sm">
-                    {v.note}
+            <div key={v.id} className="film-reveal w-[78vw] shrink-0 sm:w-[22rem]">
+              <button
+                onClick={() => {
+                  if (!drag.current.moved) setActive(v);
+                }}
+                data-cursor-label="Play"
+                aria-label={`Play ${v.event}`}
+                className="group block w-full text-left"
+              >
+                <span className="relative block aspect-video overflow-hidden rounded-sm bg-ink-soft">
+                  <Poster
+                    video={v}
+                    frame={v.thumb ?? 0}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <span className="absolute inset-0 bg-ink/10 transition-colors duration-300 group-hover:bg-ink/30" />
+                  <span className="absolute inset-0 grid place-items-center">
+                    <PlayGlyph size="sm" />
                   </span>
-                )}
-              </span>
-              <span className="mt-3 flex items-baseline justify-between gap-3">
-                <span className="font-display text-lg leading-tight text-bone">
-                  {v.title}
+                  {v.note && (
+                    <span className="absolute left-2 top-2 rounded-full bg-ink/70 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-bone/80 backdrop-blur-sm">
+                      {v.note}
+                    </span>
+                  )}
                 </span>
-                <span className="overline shrink-0 text-bone/45">{v.year}</span>
-              </span>
-              <span className="tnum mt-1 block text-sm text-bone/55">
-                {[v.distance, v.result].filter(Boolean).join(" · ")}
-              </span>
-            </button>
+                <span className="mt-3 flex items-baseline justify-between gap-3">
+                  <span className="font-display text-lg leading-tight text-bone">
+                    {v.title}
+                  </span>
+                  <span className="overline shrink-0 text-bone/45">{v.year}</span>
+                </span>
+                <span className="tnum mt-1 block text-sm text-bone/55">
+                  {[v.distance, v.result].filter(Boolean).join(" · ")}
+                </span>
+              </button>
+            </div>
           ))}
         </div>
       </div>

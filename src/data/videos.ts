@@ -35,6 +35,7 @@ export const videos: Video[] = [
     result: "20:52.2 · 39th",
     note: "Full replay",
     youtube: "https://www.youtube.com/watch?v=mmT_FeMbk08",
+    thumb: 3,
   },
   {
     id: "QUECbrZHIRQ",
@@ -46,6 +47,7 @@ export const videos: Video[] = [
     result: "20:22.5 · 65th · PB",
     note: "Full replay",
     youtube: "https://www.youtube.com/watch?v=QUECbrZHIRQ",
+    thumb: 1,
   },
   {
     id: "5_tq0a_eVeU",
@@ -68,6 +70,7 @@ export const videos: Video[] = [
     result: "4:45.16",
     note: "Full stream",
     youtube: "https://www.youtube.com/watch?v=l77_d678sA0",
+    thumb: 3,
   },
   {
     id: "W6ujV_ekMzM",
@@ -79,6 +82,7 @@ export const videos: Video[] = [
     result: "9:16.64 · 3rd",
     note: "News segment",
     youtube: "https://www.youtube.com/watch?v=W6ujV_ekMzM",
+    thumb: 1,
   },
   {
     id: "YUDg5lnOwZ8",
@@ -88,6 +92,7 @@ export const videos: Video[] = [
     distance: "1500m",
     note: "Age 14 · champion + interview",
     youtube: "https://www.youtube.com/watch?v=YUDg5lnOwZ8",
+    thumb: 1,
   },
 ];
 
